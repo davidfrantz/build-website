@@ -28,6 +28,7 @@ fi
 rm -rf public
 git rm public
 rm -rf .git/modules/public
+git submodule update --init --recursive
 git submodule add -f -b master $repository public
 
 # build the website
@@ -35,7 +36,7 @@ docker run \
   --rm -it \
   -v $PWD:/src \
   -u $(id -u):$(id -g) \
-  klakegg/hugo
+  klakegg/hugo:ext
 
 # push the website
 cd public/
