@@ -28,7 +28,6 @@ fi
 rm -rf public
 git rm public
 rm -rf .git/modules/public
-git submodule update --init --recursive
 git submodule add -f -b master $repository public
 
 # build the website
